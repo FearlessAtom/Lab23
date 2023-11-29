@@ -1,46 +1,30 @@
 #include <stdio.h>
-#include <stdlib.h>
-#include <time.h>
+#include <ctype.h>
+#include <string.h>
+int vowel(char c) {
+    c = tolower(c);
+    return (c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u' || c == 'y');}
+int consonant(char c) {
+    c = tolower(c);
+    return (c >= 'a' && c <= 'z' && c != 'a' && c != 'e' && c != 'i' && c != 'o' && c != 'u');}
 int main() {
-    srand(time(0));
-    int count = 0;
-    int number = 5;
-    int *arrayone = (int *)malloc(sizeof(int) * number);
-    int *pointerone = arrayone;
-    printf("First array : \n");
-    for (int index = 0; index < number; index++) {
-        *(pointerone + index) = rand() % 5;
-        printf("%2d", *(pointerone + index));}
-    int *arraytwo = (int *)malloc(sizeof(int) * number);
-    int *pointertwo = arraytwo;
-    printf("\nSecond array : \n");
-    for (int index = 0; index < number; index++) {
-        *(pointertwo + index) = rand() % 5;
-        printf("%2d", *(pointertwo + index));}
-    printf("\n");
-    int *both = (int *)malloc(sizeof(int) * number * 2);
-    int *pointerboth = both;
-    for (int index = 0; index < number; index++) {*(pointerboth + index) = *(pointerone + index);}
-    for (int index = 0; index < number; index++) {*(pointerboth + index + number) = *(pointertwo + index);}
-    printf("Merged array : \n");
-    for (int index = 0; index < number * 2; index++) {printf("%2d", *(pointerboth + index));}
-    int *common = (int *)malloc(sizeof(int) * number);
-    int *pointercommon = common;
-    printf("\nCommon elements : \n");
-    for (int i = 0; i < number; i++) {
-        for (int j = 0; j < number; j++) {
-            if (*(pointerone + i) == *(pointertwo + j)) {
-                int found = 0;
-                for (int k = 0; k < count; k++) {
-                    if (*(pointerone + i) == *(pointercommon + k)) {
-                        found = 1;
-                        break;}}
-                if (!found) {
-                    *(pointercommon + count) = *(pointerone + i);
-                    count++;}}}}
-    for (int index = 0; index < count; index++) {printf("%2d", *(pointercommon + index));}
-    free(arrayone);
-    free(arraytwo);
-    free(both);
-    free(common);
+    char string[1000];
+    printf("Enter a string: ");
+    fgets(string, sizeof(string), stdin);
+    char secondstring[1000];
+    int index, j;
+    for (index = 0, j = 0; string[index] != '\0'; index++) {if (!isdigit(string[index])) {secondstring[j++] = string[index];}}
+    secondstring[j] = '\0';
+    char *pointer = strtok(string, " ");
+    int count = 0, countconsonant;
+    printf("| Words with an odd number of consonants |\n");
+    char *charpointer = pointer;
+    while (pointer != 0) {
+        if (vowel(*pointer)) {count = count + 1;}
+        countconsonant = 0;
+        for (int index = 0; index < strlen(pointer); index++) {if (consonant(*charpointer + index)) {countconsonant = countconsonant + 1;}}
+        if (countconsonant % 2 == 1) {printf("%s ", pointer);}
+        pointer = strtok(NULL, " ");}
+    printf("\n| Amount of words starting with a vowel  |\n%20d", count);
+    printf("\n|         String without numbers         |\n%s", secondstring);
     return 0;}

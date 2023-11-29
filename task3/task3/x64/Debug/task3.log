@@ -1,3 +1,2 @@
 ﻿  task3.cpp
-C:\Users\357\Desktop\Лр20 Основи програмування\task3\task3\task3.cpp(5,12): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
-  task3.vcxproj -> C:\Users\357\Desktop\Лр20 Основи програмування\task3\x64\Debug\task3.exe
+  task3.vcxproj -> C:\Users\357\Desktop\Лр21 Основи програмування\task3\x64\Debug\task3.exe
