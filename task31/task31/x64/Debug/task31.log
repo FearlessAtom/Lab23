@@ -1,0 +1,6 @@
+﻿  task31.cpp
+C:\Users\357\Desktop\Лр22 Основи програмування\task31\task31\task31.cpp(4,55): warning C4473: 'scanf_s' : not enough arguments passed for format string
+C:\Users\357\Desktop\Лр22 Основи програмування\task31\task31\task31.cpp(4,55): message : placeholders and their parameters expect 2 variadic arguments, but 1 were provided
+C:\Users\357\Desktop\Лр22 Основи програмування\task31\task31\task31.cpp(4,55): message : the missing variadic argument 2 is required by format string '%c'
+C:\Users\357\Desktop\Лр22 Основи програмування\task31\task31\task31.cpp(4,55): message : this argument is used as a buffer size
+  task31.vcxproj -> C:\Users\357\Desktop\Лр22 Основи програмування\task31\x64\Debug\task31.exe

@@ -1,2 +1,3 @@
 ﻿  task2.cpp
-  task2.vcxproj -> C:\Users\357\Desktop\Лр21 Основи програмування\task2\x64\Debug\task2.exe
+C:\Users\357\Desktop\Лр22 Основи програмування\task2\task2\task2.cpp(40,18): warning C4553: '==': result of expression not used; did you intend '='?
+  task2.vcxproj -> C:\Users\357\Desktop\Лр22 Основи програмування\task2\x64\Debug\task2.exe

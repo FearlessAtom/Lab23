@@ -1,11 +1,19 @@
-#include <stdio.h>
-#include <ctype.h>
-int main() {
-    char input[100];
-    int count = 0;
-    printf("Enter a string: ");fgets(input, sizeof(input), stdin);
-    for (int index = 0; input[index] != '\0'; index++){
-        char character = tolower(input[index]);
-        if (isalpha(character) && character != 'e' && character != 'a' && character != 'i' && character != 'o' && character != 'u') {count = count + 1;}}
-    printf("Amount of consonants : %d", count);
-    return 0;}
+    #include <stdio.h>
+    #include <stdlib.h>
+    #include <string.h>
+    int* reversed(char (*words)[100], char *string) {
+        char *pointer = strtok(string, " ");
+        int index = 0;
+        while (pointer != NULL) {
+            strcpy(words[index], pointer);
+            pointer = strtok(NULL, " ");
+            index++;}
+        for(int j = 0;j < index;j++){if(strlen(words[j]) % 2 == 0){strrev(words[j]);}}
+        return 0;}
+    int main() {
+        char string[100], words[100][100];
+        printf("Enter a string: ");fgets(string, sizeof(string), stdin);
+        if (string[strlen(string) - 1] == '\n') {string[strlen(string) - 1] = '\0';}
+        reversed(words, string);
+        for (int index = 0; strlen(words[index]) > 0; index++){printf("%s ", words[index]);}
+        return 0;}
