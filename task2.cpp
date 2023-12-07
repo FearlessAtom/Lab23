@@ -13,21 +13,12 @@ int main(){
     if (string[strlen(string) - 1] == '\n') {string[strlen(string) - 1] = '\0';}
     token(words, string);
     palindrome(words, palindromearray);
-    if(strlen(palindromearray[0]) > 0){
-        printf("Palidromes : \n");
-        for (int index = 0; strlen(palindromearray[index]) > 0; index++) {printf("%s ", palindromearray[index]);}}
-    else{printf("The string does not have palidromes!");}
     withoutrepeatedwords(words, countarray);
     countinstances(words, countarray, countint);
-    printf("\nWords and number of their instances : \n");
-    for(int index = 0; strlen(countarray[index]) > 0; index++){printf("%s[%d] ", countarray[index], countint[index]);}
-    printf("\nWord that occurs the most : ");
-    printf("%s", wordthatoccursthemost(countarray, countint));
+    wordthatoccursthemost(countarray, countint);
     printf("\nArray without reptead words : \n");
     for(int index = 0; strlen(countarray[index]) > 0; index++){printf("%s ",countarray[index]);}
     alphabeticalorder(words);
-    printf("\nArray sorted in alphabetical order : \n");
-    for(int index = 0; strlen(words[index]) > 0; index++){printf("%s ",words[index]);}
     return 0;}
 void token(char words[100][100], char *string) {
     char *pointer = strtok(string, " ");
@@ -41,7 +32,11 @@ void palindrome(char words[100][100], char palindromearray[100][100]) {
     for (int index = 0; strlen(words[index]) > 0; index++) {
         if (strcmp(words[index], strrev(strdup(words[index]))) == 0 && strlen(words[index]) != 1) {
             strcpy(palindromearray[count], words[index]);
-            count++;}}}
+            count++;}}
+    if(strlen(palindromearray[0]) > 0){
+        printf("Palidromes : \n");
+        for (int index = 0; strlen(palindromearray[index]) > 0; index++) {printf("%s ", palindromearray[index]);}}
+    else{printf("The string does not have palidromes!");}}
 void withoutrepeatedwords(char words[100][100],char countarray[100][100]){
     int count = 0;
     for(int index = 0; strlen(words[index]) > 0; index++){
@@ -52,13 +47,17 @@ void withoutrepeatedwords(char words[100][100],char countarray[100][100]){
                 break;}}
     if(!found){
         strcpy(countarray[count],words[index]);
-        count++;}}}
+        count++;}}
+    printf("\nArray without reptead words : \n");
+    for(int index = 0; strlen(countarray[index]) > 0; index++){printf("%s ",countarray[index]);}}
 void countinstances(char words[100][100], char countarray[100][100], char countint[100]){
     for(int index = 0;strlen(countarray[index]) > 0; index++){countint[index] = 0;}
     for(int index = 0;strlen(countarray[index]) > 0; index++){
         for(int j = 0; strlen(words[j]) > 0; j++){
             if(strcmp(countarray[index], words[j]) == 0){
-                countint[index] = countint[index] + 1;}}}}
+                countint[index] = countint[index] + 1;}}}
+    printf("\nWords and number of their instances : \n");
+    for(int index = 0; strlen(countarray[index]) > 0; index++){printf("%s[%d] ", countarray[index], countint[index]);}}
 char* wordthatoccursthemost(char countarray[100][100], char countint[100]){
     int max = INT_MIN;
     int maxindex;
@@ -66,7 +65,8 @@ char* wordthatoccursthemost(char countarray[100][100], char countint[100]){
         if(countint[index] > max){
             max = countint[index];
             maxindex = index;}}
-    return countarray[maxindex];}
+    printf("\nWord that occurs the most : ");
+    printf("%s", countarray[maxindex]);}
 void alphabeticalorder(char words[100][100]){
     int length = 0;
     while(strlen(words[length]) > 0){length++;}
@@ -76,4 +76,6 @@ void alphabeticalorder(char words[100][100]){
                 char temp[100];
                 strcpy(temp,words[j]);
                 strcpy(words[j],words[j + 1]);
-                strcpy(words[j + 1], temp);}}}}
+                strcpy(words[j + 1], temp);}}}
+    printf("\nArray sorted in alphabetical order : \n");
+    for(int index = 0; strlen(words[index]) > 0; index++){printf("%s ",words[index]);}}

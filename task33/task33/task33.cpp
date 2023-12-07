@@ -1,14 +1,14 @@
 ﻿#include <stdio.h>
 #include <string.h>
-int grades(char result[100]);
-int  main() {
-	printf("Enter a grade : "); char result[100]; scanf_s("%s", result,sizeof(result));
-	if (!grades(result)) { printf("Please, enter a valid grade!"); }
-	else { printf("%d", grades(result)); }
-	return 0;}
-int grades(char result[100]) {
+void grades(char result[100]) {
 	char grades[4][100] = { "unsatisfactory","satisfactory","good","excellent" };
+	bool found = false;
 	for (int index = 0; strlen(grades[index]) > 0; index++) {
 		if (strcmp(result, grades[index]) == 0) {
-			return index + 2;}}
+			printf("%d", index + 2);
+			found = true;}}
+	if(!found)printf("Please, enter a valid grade!");}
+int	main() {
+	printf("Enter a grade : "); char result[100]; scanf_s("%s", result,sizeof(result));
+	grades(result);
 	return 0;}

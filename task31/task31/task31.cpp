@@ -1,15 +1,12 @@
 ﻿#include <stdio.h>
-const char* grade(char character);
-int main(){
-	printf("Enter a string : "); char character; scanf_s("%c", &character);
-	const char* result = grade(character);
-	if (!result) { printf("Please, enter a valie grade!"); }
-	else { printf("%s", result); }
-	return 0;}
-const char* grade(char character) {
+void grade(char character) {
 	switch (character) {
-	case '2': return "unsatisfactory";
-	case '3': return "satisfactory";
-	case '4': return "good";
-	case '5': return "excellent";
-	default: return NULL;}}
+	case '2': printf("unsatisfactory"); break;
+	case '3': printf("satisfactory"); break;
+	case '4': printf("good"); break;
+	case '5': printf("excellent"); break;
+	default: printf("Please, enter a valie grade!");}}
+int main() {
+	printf("Enter a grade : "); char character; scanf_s("%c", &character);
+	grade(character);
+	return 0;}
