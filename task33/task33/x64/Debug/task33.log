@@ -1,4 +1,0 @@
-﻿  task33.cpp
-C:\Users\357\Desktop\Лр22 Основи програмування\task33\task33\task33.cpp(12,56): warning C4477: 'scanf_s' : format string '%s' requires an argument of type 'unsigned int', but variadic argument 2 has type 'size_t'
-C:\Users\357\Desktop\Лр22 Основи програмування\task33\task33\task33.cpp(12,56): message : this argument is used as a buffer size
-  task33.vcxproj -> C:\Users\357\Desktop\Лр22 Основи програмування\task33\x64\Debug\task33.exe
